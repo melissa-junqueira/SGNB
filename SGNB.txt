@@ -1,0 +1,6 @@
+SGNB - Sistema de Gerenciamento de Negócios para Bicicleta
+
+Integrantes: Arthur dos Santos Signorelli, CLeoberth Oliveira Santos, Giuliano de Lima Bengevenga, Melissa Batista Junqueira, Soap (Caio Felipe Lopes Maran) e Willer Farias Filho.
+
+  O SGNB pretende auxiliar o processo de gerenciamento de uma bicicletaria local de um bairro, que utiliza recursos manuais e caseiros para gerenciar seu negócio, portanto o nosso projeto tem a ideia principal de ajudar o dono desta pequena loja que trabalha sozinho.
+  Funcionalidades como: Gerenciar estoque (tanto peças de bicicletas, quanto as bicicletas disponíveis), menu de opções iterativo, listagem dos distribuidores da loja, descrição dos itens, agendamento de conserto, etc...
