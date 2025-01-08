@@ -107,13 +107,6 @@ CREATE TABLE tb_compra(
    FOREIGN KEY(id_bicicleta) REFERENCES tb_bicicleta(id_bicicleta)
 );
 
-CREATE TABLE tb_registro(
-   id_compra int NOT NULL,
-   data_hora_compra DATETIME NOT NULL,
-   
-   FOREIGN KEY(id_compra) REFERENCES tb_compra(id_compra)
-);
-
 CREATE TABLE tb_estoque(
    id_loja int NOT NULL,
    id_peca INT NOT NULL,
