@@ -19,8 +19,8 @@ CREATE TABLE tb_loja(
 CREATE TABLE tb_cliente(
    id_cliente int NOT NULL AUTO_INCREMENT,
    nome_cliente VARCHAR(100) NOT NULL,
-   telefone VARCHAR(11) NOT NULL,
-   email VARCHAR(150),
+   telefone_cliente VARCHAR(11) NOT NULL,
+   email_cliente VARCHAR(150),
    
    PRIMARY KEY(id_cliente)
 );
@@ -30,10 +30,10 @@ CREATE TABLE tb_cliente(
 CREATE TABLE tb_bicicleta(
    id_bicicleta int NOT NULL AUTO_INCREMENT,
    nome_bike VARCHAR(100) NOT NULL,
-   marca VARCHAR(90) NOT NULL,
+   marca_bike VARCHAR(90) NOT NULL,
    cor VARCHAR(35) NOT NULL,
    aro VARCHAR(6) NOT NULL,
-   classsificacao VARCHAR(8) NOT NULL,
+   classificacao VARCHAR(8) NOT NULL,
    peso VARCHAR(5),
    preco double,
    
@@ -62,9 +62,9 @@ CREATE TABLE tb_fornecedor(
    id_fornecedor int NOT NULL AUTO_INCREMENT,
    id_endereco int NOT NULL,
    nome_fornecedor VARCHAR(100) NOT NULL,
-   telefone VARCHAR(11) NOT NULL,
+   telefone_fornecedor VARCHAR(11) NOT NULL,
    cnpj VARCHAR(14),
-   email VARCHAR(150),
+   email_fornecedor VARCHAR(150),
    
    PRIMARY KEY(id_fornecedor),
    FOREIGN KEY(id_endereco) REFERENCES tb_endereco(id_endereco)
@@ -76,9 +76,9 @@ CREATE TABLE tb_peca(
    id_peca int NOT NULL AUTO_INCREMENT,
    id_fornecedor int NOT NULL,
    nome_peca VARCHAR(80) NOT NULL,
-   marca VARCHAR(90) NOT NULL,
+   marca_peca VARCHAR(90) NOT NULL,
    valor_uni double NOT NULL,
-   descricao TEXT,
+   descricao_peca TEXT,
    
    PRIMARY KEY(id_peca),
    FOREIGN KEY(id_fornecedor) REFERENCES tb_fornecedor(id_fornecedor)
@@ -89,8 +89,8 @@ CREATE TABLE tb_peca(
 CREATE TABLE tb_agendamento(
     id_agendamento int NOT NULL AUTO_INCREMENT,
     id_cliente int NOT NULL,
-    data_hora DATETIME NOT NULL,
-    descricao TEXT NOT NULL,
+    data_hora_Ag DATETIME NOT NULL,
+    descricao_Ag TEXT NOT NULL,
     #descrever tipo de serviço: "Serviço de Agendamento" ou "Serviço de Conserto"
     
     PRIMARY KEY(id_agendamento),
@@ -103,10 +103,10 @@ CREATE TABLE tb_servico(
    id_servico int NOT NULL AUTO_INCREMENT,
    id_agendamento int NOT NULL,
    id_peca int,
-   nome VARCHAR(30),
-   data_hora DATETIME NOT NULL, 
+   nome_Serv VARCHAR(30),
+   data_hora_Serv DATETIME NOT NULL, 
    qntd_peca int,
-   valor_total_ser double,
+   valor_total_Ser double,
    
    PRIMARY KEY(id_servico),
    FOREIGN KEY(id_agendamento) REFERENCES tb_agendamento(id_agendamento),
@@ -119,8 +119,8 @@ CREATE TABLE tb_compra(
    id_compra int NOT NULL AUTO_INCREMENT,
    id_cliente int NOT NULL,
    id_bicicleta int NOT NULL,
-   data_hora_compra DATETIME NOT NULL,
-   valor_total_com double,
+   data_hora_Comp DATETIME NOT NULL,
+   valor_total_Comp double,
    
    PRIMARY KEY(id_compra),
    FOREIGN KEY(id_cliente) REFERENCES tb_cliente(id_cliente),
@@ -131,7 +131,7 @@ CREATE TABLE tb_compra(
 
 CREATE TABLE tb_registro(
    id_compra int NOT NULL,
-   data_hora_compra DATETIME NOT NULL,
+   data_hora_Compra DATETIME NOT NULL,
    
    FOREIGN KEY(id_compra) REFERENCES tb_compra(id_compra)
 );
