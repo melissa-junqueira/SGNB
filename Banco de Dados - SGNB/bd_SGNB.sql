@@ -1,6 +1,10 @@
-CREATE DATABASE bd_sgnb;
+CREATE DATABASE IF NOT EXISTS bd_sgnb;
 
 USE bd_sgnb;
+
+#DROP DATABASE bd_sgnb;
+
+#DROP TABLE IF EXISTS tb_loja;
 
 CREATE TABLE tb_loja(
    id_loja int NOT NULL AUTO_INCREMENT,
@@ -10,6 +14,8 @@ CREATE TABLE tb_loja(
    PRIMARY KEY(id_loja)
 );
 
+#DROP TABLE IF EXISTS tb_cliente;
+
 CREATE TABLE tb_cliente(
    id_cliente int NOT NULL AUTO_INCREMENT,
    nome_cliente VARCHAR(100) NOT NULL,
@@ -18,6 +24,8 @@ CREATE TABLE tb_cliente(
    
    PRIMARY KEY(id_cliente)
 );
+
+#DROP TABLE IF EXISTS tb_bicicleta;
 
 CREATE TABLE tb_bicicleta(
    id_bicicleta int NOT NULL AUTO_INCREMENT,
@@ -31,6 +39,8 @@ CREATE TABLE tb_bicicleta(
    
    PRIMARY KEY(id_bicicleta)
 );
+
+#DROP TABLE IF EXISTS tb_endereco;
 
 CREATE TABLE tb_endereco(
    id_endereco int NOT NULL AUTO_INCREMENT,
@@ -46,6 +56,8 @@ CREATE TABLE tb_endereco(
    PRIMARY KEY(id_endereco)
 );
 
+#DROP TABLE IF EXISTS tb_fornecedor;
+
 CREATE TABLE tb_fornecedor(
    id_fornecedor int NOT NULL AUTO_INCREMENT,
    id_endereco int NOT NULL,
@@ -57,6 +69,8 @@ CREATE TABLE tb_fornecedor(
    PRIMARY KEY(id_fornecedor),
    FOREIGN KEY(id_endereco) REFERENCES tb_endereco(id_endereco)
 );
+
+#DROP TABLE IF EXISTS tb_peca;
 
 CREATE TABLE tb_peca(
    id_peca int NOT NULL AUTO_INCREMENT,
@@ -70,6 +84,8 @@ CREATE TABLE tb_peca(
    FOREIGN KEY(id_fornecedor) REFERENCES tb_fornecedor(id_fornecedor)
 );
 
+#DROP TABLE IF EXISTS tb_agendamento;
+
 CREATE TABLE tb_agendamento(
     id_agendamento int NOT NULL AUTO_INCREMENT,
     id_cliente int NOT NULL,
@@ -80,6 +96,8 @@ CREATE TABLE tb_agendamento(
     PRIMARY KEY(id_agendamento),
     FOREIGN KEY(id_cliente) REFERENCES tb_cliente(id_cliente)
 );
+
+#DROP TABLE IF EXISTS tb_servico;
 
 CREATE TABLE tb_servico(
    id_servico int NOT NULL AUTO_INCREMENT,
@@ -95,6 +113,8 @@ CREATE TABLE tb_servico(
    FOREIGN KEY(id_peca) REFERENCES tb_peca(id_peca)
 );
 
+#DROP TABLE IF EXISTS tb_compra;
+
 CREATE TABLE tb_compra(
    id_compra int NOT NULL AUTO_INCREMENT,
    id_cliente int NOT NULL,
@@ -107,12 +127,16 @@ CREATE TABLE tb_compra(
    FOREIGN KEY(id_bicicleta) REFERENCES tb_bicicleta(id_bicicleta)
 );
 
+#DROP TABLE IF EXISTS tb_registro;
+
 CREATE TABLE tb_registro(
    id_compra int NOT NULL,
    data_hora_compra DATETIME NOT NULL,
    
    FOREIGN KEY(id_compra) REFERENCES tb_compra(id_compra)
 );
+
+#DROP TABLE IF EXISTS tb_estoque;
 
 CREATE TABLE tb_estoque(
    id_loja int NOT NULL,
@@ -123,3 +147,27 @@ CREATE TABLE tb_estoque(
    FOREIGN KEY(id_peca) REFERENCES tb_peca(id_peca),
    FOREIGN KEY(id_bicicleta) REFERENCES tb_bicicleta(id_bicicleta)
 );
+
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+INSERT INTO _ values (DEFAULT);
+
+SELECT * FROM _;
+SELECT * FROM _;
+SELECT * FROM _;
+SELECT * FROM _;
+SELECT * FROM _;
+SELECT * FROM _;
+SELECT * FROM _;
+SELECT * FROM _;
+SELECT * FROM _;
+SELECT * FROM _;
+SELECT * FROM _;
